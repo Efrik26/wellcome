@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome — Аренда мебели для мероприятий</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo"><img src="images/logo.png" alt="Wellcome" class="logo-img"></a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#hero" onclick="closeMenu()">Главная</a></li>
+                    <li><a href="#gallery" onclick="closeMenu()">Портфолио</a></li>
+                    <li><a href="#advantages" onclick="closeMenu()">Преимущества</a></li>
+                    <li><a href="#calculator" onclick="closeMenu()">Калькулятор</a></li>
+                    <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+                    <li><a href="#contact" onclick="closeMenu()">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="burger" id="burger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+		<div class="section-container" style="position: relative; z-index: 2; display: flex; align-items: center; min-height: 100vh;">
+			<div class="hero-content">
+				<div class="hero-tag">Аренда мебели для мероприятий</div>
+				<h1 class="hero-title">Атмосфера<br><span class="hero-title-light">ваших событий</span></h1>
+				<p class="hero-desc">Создаём эстетику и комфорт на мероприятиях любого масштаба. Профессиональное оснащение фуршетных и банкетных зон. Бесплатная доставка, гибкая система скидок.</p>
+				<div class="hero-buttons">
+					<a href="#calculator" class="btn btn-primary">Рассчитать стоимость</a>
+					<a href="#contact" class="btn btn-outline">Связаться с нами</a>
+				</div>
+			</div>
+		</div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="section-container">
+            <h2 class="section-title">Создайте нужную атмосферу</h2>
+            <p class="section-subtitle">Наша мебель идеально вписывается в любой формат события</p>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%235a7d5a' width='600' height='400'/%3E%3Ccircle cx='300' cy='200' r='80' fill='%23fff' opacity='0.3'/%3E%3Ctext x='300' y='210' text-anchor='middle' fill='white' font-size='16'%3EКоктейльные столы%3C/text%3E%3C/svg%3E" alt="Коктейльные столы">
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%238a9a7a' width='300' height='300'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%23fff' opacity='0.2'/%3E%3Ctext x='150' y='155' text-anchor='middle' fill='white' font-size='14'%3EСтулья кьявари%3C/text%3E%3C/svg%3E" alt="Стулья кьявари">
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%236a7a6a' width='300' height='300'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%23fff' opacity='0.2'/%3E%3Ctext x='150' y='155' text-anchor='middle' fill='white' font-size='14'%3EСервировка%3C/text%3E%3C/svg%3E" alt="Сервировка">
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%239aaa8a' width='300' height='300'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%23fff' opacity='0.2'/%3E%3Ctext x='150' y='155' text-anchor='middle' fill='white' font-size='14'%3EФуршет%3C/text%3E%3C/svg%3E" alt="Фуршет">
+                </div>
+                <div class="gallery-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%237a8a7a' width='300' height='300'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%23fff' opacity='0.2'/%3E%3Ctext x='150' y='155' text-anchor='middle' fill='white' font-size='14'%3EБанкет%3C/text%3E%3C/svg%3E" alt="Банкет">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section id="advantages">
+        <div class="section-container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-subtitle">Преимущества работы с Wellcome</p>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">📦</div>
+                    <h3 class="advantage-title">Наличие</h3>
+                    <p class="advantage-text">Большой складской запас позволяет удовлетворить запросы мероприятий любого масштаба. Более 200 единиц мебели всегда в наличии.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚚</div>
+                    <h3 class="advantage-title">Логистика</h3>
+                    <p class="advantage-text">Расположение склада в центре Ставрополя позволяет оптимизировать доставку и облегчить самовывоз.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⭐</div>
+                    <h3 class="advantage-title">Сервис</h3>
+                    <p class="advantage-text">Оперативное реагирование на все запросы и заявки. Индивидуальный подход к каждому клиенту.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔑</div>
+                    <h3 class="advantage-title">Под ключ</h3>
+                    <p class="advantage-text">Весь комплекс услуг нашими силами: доставка, сборка на площадке и последующий вывоз.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">✨</div>
+                    <h3 class="advantage-title">Качество</h3>
+                    <p class="advantage-text">Чистота и отличное состояние мебели премиального качества от ведущих отечественных производителей.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3 class="advantage-title">Выгодные цены</h3>
+                    <p class="advantage-text">Долгосрочное сотрудничество на особых условиях и скидки для постоянных клиентов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator" id="calculator">
+        <div class="section-container">
+            <h2 class="section-title">Калькулятор аренды</h2>
+            <p class="section-subtitle">Выберите необходимую мебель и рассчитайте стоимость</p>
+            <div class="calc-wrapper">
+                <!-- Шаг 1 -->
+                <div class="calc-step active" id="step1">
+                    <div class="products-grid" id="productsGrid"></div>
+                    <div class="calc-total-display">
+                        Итого за сутки: <span id="totalPerDay">0</span> руб.
+                    </div>
+                    <div class="calc-buttons">
+                        <button class="btn btn-primary" onclick="goToStep2()">Далее</button>
+                    </div>
+                </div>
+                <!-- Шаг 2 -->
+                <div class="calc-step" id="step2">
+                    <div class="summary-list" id="summaryList"></div>
+                    <div class="date-row">
+                        <div class="date-field">
+                            <label>Дата получения</label>
+                            <input type="date" id="pickupDate" onchange="recalculate()">
+                        </div>
+                        <div class="date-field">
+                            <label>Дата возврата</label>
+                            <input type="date" id="returnDate" onchange="recalculate()">
+                        </div>
+                    </div>
+                    <div class="discount-info">
+                        <strong>Система скидок:</strong><br>
+                        2-е сутки аренды — скидка <strong>20%</strong><br>
+                        3-и и последующие сутки — скидка <strong>50%</strong>
+                    </div>
+                    <div class="final-price">
+                        Итого: <span id="finalPrice">0</span> руб.
+                    </div>
+                    <div class="calc-buttons" style="display: flex; gap: 15px; justify-content: center;">
+                        <button class="btn btn-outline" onclick="goToStep1()">Назад</button>
+                        <button class="btn btn-primary" onclick="openModal()">Забронировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h3>Забронировать</h3>
+            <p>Оставьте контакты, и мы свяжемся для подтверждения</p>
+            <input type="text" placeholder="Ваше имя" id="clientName">
+            <input type="tel" placeholder="Номер телефона" id="clientPhone">
+            <button class="btn btn-primary" onclick="submitBooking()">Отправить заявку</button>
+            <button class="btn btn-close-modal" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="section-container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <p class="section-subtitle">Ответы на популярные вопросы</p>
+            <div class="faq-list">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">Какие мероприятия вы обслуживаете? <span class="faq-arrow">▼</span></div>
+                    <div class="faq-answer">Мы работаем на мероприятиях любого формата: свадьбы, корпоративы, дни рождения, фуршеты, выставки, конференции, частные вечеринки. Наш опыт позволяет адаптироваться под любые задачи.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">Предоставляете ли вы услуги по доставке и установке? <span class="faq-arrow">▼</span></div>
+                    <div class="faq-answer">Да, мы предлагаем полный цикл: доставка в удобное время, профессиональная сборка и установка мебели на площадке, а также оперативный вывоз после мероприятия.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">Каковы ваши условия аренды? <span class="faq-arrow">▼</span></div>
+                    <div class="faq-answer">Стандартный срок аренды — сутки. При более длительном использовании действует система скидок: 2-е сутки — скидка 20%, 3-и и последующие — скидка 50%. Для постоянных партнеров — особые условия.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">Могу ли я изменить условия аренды? <span class="faq-arrow">▼</span></div>
+                    <div class="faq-answer">Да, мы идём навстречу нашим клиентам. Вы можете скорректировать количество позиций, даты или состав заказа. Пожалуйста, сообщайте об изменениях не позднее чем за 24 часа до мероприятия.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">За какое время до мероприятия нужно бронировать мебель? <span class="faq-arrow">▼</span></div>
+                    <div class="faq-answer">Рекомендуем бронировать за 7-14 дней до даты, особенно в высокий свадебный сезон. Но мы стараемся помочь даже при срочных заказах — всё зависит от наличия.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Связаться с нами</h3>
+                    <p class="contact-detail">📍 г. Ставрополь, центральный склад</p>
+                    <p class="contact-detail">📞 +7 (XXX) XXX-XX-XX</p>
+                    <p class="contact-detail">✉️ info@wellcome.ru</p>
+                    <p style="margin-top: 20px; color: var(--text-light);">Оставьте заявку, и мы перезвоним в течение 15 минут.</p>
+                </div>
+                <form class="contact-form" onsubmit="handleContactForm(event)">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <textarea placeholder="Комментарий (необязательно)"></textarea>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Wellcome. Аренда мебели для мероприятий. Все права защищены.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
