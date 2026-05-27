@@ -326,11 +326,13 @@ section {
 
 .advantage-card {
     text-align: center;
-    padding: 40px 25px;
+    padding: 60px 25px 35px;
     background: var(--white);
     border-radius: 2px;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    position: relative;
+    margin-top: 50px;
 }
 
 .advantage-card:hover {
@@ -339,22 +341,19 @@ section {
 }
 
 .advantage-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 25px;
-    background: var(--gray);
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -110px auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
 }
 
-.advantage-title {
-    font-weight: 600;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-    font-size: 16px;
+.advantage-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .advantage-text {
