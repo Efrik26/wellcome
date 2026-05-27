@@ -10,7 +10,7 @@ const products = [
     { id: 8, name: 'Стрейч-чехол на прям. стол (белый)', price: 800, icon: '🤍' },
     { id: 9, name: 'Скатерть на прям. стол (белая)', price: 1000, icon: '⬜' },
     { id: 10, name: 'Скатерть на прям. стол (чёрная)', price: 1000, icon: '⬛' },
-    { id: 11, name: 'Стул прозрачный кьявари', price: 350, icon: '👑' },
+    { id: 11, name: 'Стул прозрачный кьявари', price: 350, image: 'images/chiavari-chair.jpg' },
     { id: 12, name: 'Стул деревянный складной', price: 250, icon: '🪑' },
 ];
 
@@ -23,7 +23,7 @@ function renderProducts() {
         const qty = cart[p.id] || 0;
         return `
             <div class="product-card">
-                <div class="product-img"><span style="font-size:48px;">${p.icon}</span></div>
+                <div class="product-img">${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">` : `<span style="font-size:48px;">${p.icon}</span>`}</div>
                 <div class="product-name">${p.name}</div>
                 <div class="product-price">${p.price} <small>₽/сут</small></div>
                 <div class="quantity-input">
@@ -73,7 +73,7 @@ function renderSummary() {
     const items = products.filter(p => (cart[p.id] || 0) > 0);
     list.innerHTML = items.map(p => `
         <div class="summary-item">
-            <div class="summary-item-img">${p.icon}</div>
+            <div class="summary-item-img">${p.image ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">` : p.icon}</div>
             <div class="summary-item-info">
                 <div class="summary-item-name">${p.name}</div>
                 <div class="summary-item-qty">Количество: ${cart[p.id]} × ${p.price} ₽/сут</div>
