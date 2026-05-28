@@ -139,34 +139,27 @@ function submitBooking() {
     }
 
     const items = products.filter(p => (cart[p.id] || 0) > 0)
-        .map(p => `${p.name} × ${cart[p.id]}`).join('\n');
+        .map(p => `${p.name} × ${cart[p.id]}`).join(', ');
     const final = document.getElementById('finalPrice').textContent;
     const pickupDate = document.getElementById('pickupDate').value;
     const returnDate = document.getElementById('returnDate').value;
 
-    const message = `🪑 *Новая заявка с Wellcome!*\n\n` +
-        `👤 *Имя:* ${name}\n` +
-        `📞 *Телефон:* ${phone}\n\n` +
-        `📅 *Даты аренды:* с ${pickupDate} по ${returnDate}\n\n` +
-        `📋 *Товары:*\n${items}\n\n` +
-        `💰 *Итого:* ${final} руб.`;
+    // Формируем данные для отправки
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('dates', `с ${pickupDate} по ${returnDate}`);
+    formData.append('items', items);
+    formData.append('total', final + ' руб.');
 
-    const token = '8439675081:AAEt9KeLC4HzLvo9U0Wby6sKctNd2c85_Ys';
-    const chatId = '204667457';
-    const url = `https://api.telegram.org/bot${token}/sendMessage`;
-
-    fetch(url, {
+    // Отправляем на наш PHP-обработчик (укажите правильный путь к файлу!)
+    fetch('/send_mail.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            chat_id: chatId,
-            text: message,
-            parse_mode: 'Markdown'
-        })
+        body: formData
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        if (data.ok) {
+        if (data === 'success') {
             alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
             closeModal();
             cart = {};
@@ -174,7 +167,7 @@ function submitBooking() {
             goToStep1();
         } else {
             alert('Ошибка при отправке заявки. Пожалуйста, позвоните нам.');
-            console.error('Telegram API error:', data);
+            console.error('Server error:', data);
         }
     })
     .catch(error => {
