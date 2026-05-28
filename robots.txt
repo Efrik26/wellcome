@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /send_mail.php
+Disallow: /images/
+Allow: /images/*.jpg
+Allow: /images/*.png
+Allow: /images/*.ico
+Allow: /images/*.svg
