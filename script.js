@@ -178,8 +178,40 @@ function submitBooking() {
 
 function handleContactForm(e) {
     e.preventDefault();
-    alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
-    e.target.reset();
+    const form = e.target;
+    const name = form.querySelector('input[type="text"]').value.trim();
+    const phone = form.querySelector('input[type="tel"]').value.trim();
+    const comment = form.querySelector('textarea').value.trim();
+
+    if (!name || !phone) {
+        alert('Пожалуйста, заполните обязательные поля.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('comment', comment || 'Не указан');
+    formData.append('form_type', 'contact');
+
+    fetch('/send_mail.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data === 'success') {
+            alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
+            form.reset();
+        } else {
+            alert('Ошибка при отправке. Пожалуйста, позвоните нам.');
+            console.error('Server error:', data);
+        }
+    })
+    .catch(error => {
+        alert('Ошибка при отправке. Пожалуйста, позвоните нам.');
+        console.error('Network error:', error);
+    });
 }
 
 // FAQ
