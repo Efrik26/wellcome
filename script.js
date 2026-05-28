@@ -58,6 +58,18 @@ function goToStep2() {
     document.getElementById('step1').classList.remove('active');
     document.getElementById('step2').classList.add('active');
     renderSummary();
+
+    // Установка дат по умолчанию
+    const today = new Date().toISOString().split('T')[0];
+    if (!document.getElementById('pickupDate').value) {
+        document.getElementById('pickupDate').value = today;
+    }
+    if (!document.getElementById('returnDate').value) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('returnDate').value = tomorrow.toISOString().split('T')[0];
+    }
+
     recalculate();
     document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
 }
@@ -125,15 +137,50 @@ function submitBooking() {
         alert('Пожалуйста, заполните все поля.');
         return;
     }
+
     const items = products.filter(p => (cart[p.id] || 0) > 0)
-        .map(p => `${p.name} × ${cart[p.id]}`).join(', ');
+        .map(p => `${p.name} × ${cart[p.id]}`).join('\n');
     const final = document.getElementById('finalPrice').textContent;
-    const msg = `Заявка от ${name}, тел: ${phone}\nТовары: ${items}\nСумма: ${final} руб.`;
-    alert('Спасибо! Заявка отправлена.\n\n' + msg);
-    closeModal();
-    cart = {};
-    renderProducts();
-    goToStep1();
+    const pickupDate = document.getElementById('pickupDate').value;
+    const returnDate = document.getElementById('returnDate').value;
+
+    const message = `🪑 *Новая заявка с Wellcome!*\n\n` +
+        `👤 *Имя:* ${name}\n` +
+        `📞 *Телефон:* ${phone}\n\n` +
+        `📅 *Даты аренды:* с ${pickupDate} по ${returnDate}\n\n` +
+        `📋 *Товары:*\n${items}\n\n` +
+        `💰 *Итого:* ${final} руб.`;
+
+    const token = '8439675081:AAEt9KeLC4HzLvo9U0Wby6sKctNd2c85_Ys';
+    const chatId = '204667457';
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+            closeModal();
+            cart = {};
+            renderProducts();
+            goToStep1();
+        } else {
+            alert('Ошибка при отправке заявки. Пожалуйста, позвоните нам.');
+            console.error('Telegram API error:', data);
+        }
+    })
+    .catch(error => {
+        alert('Ошибка при отправке заявки. Пожалуйста, позвоните нам.');
+        console.error('Network error:', error);
+    });
 }
 
 function handleContactForm(e) {
