@@ -168,6 +168,7 @@
             <p>Оставьте контакты, и мы свяжемся для подтверждения</p>
             <input type="text" placeholder="Ваше имя" id="clientName">
             <input type="tel" placeholder="Номер телефона" id="clientPhone">
+			<input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
 			<label style="display: flex; align-items: flex-start; gap: 10px; text-align: left; margin-bottom: 15px; font-size: 13px; color: #666; cursor: pointer;">
 				<input type="checkbox" id="calcAgreement" style="margin-top: 2px; width: auto; accent-color: var(--gold);">
 				<span>Я согласен на <a href="privacy.html" target="_blank" style="color: var(--gold); text-decoration: underline;">обработку персональных данных</a></span>
@@ -221,6 +222,7 @@
                 <form class="contact-form" onsubmit="handleContactForm(event)">
                     <input type="text" placeholder="Ваше имя" required>
                     <input type="tel" placeholder="Телефон" required>
+					<input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
                     <textarea placeholder="Комментарий (необязательно)"></textarea>
 					<label style="display: flex; align-items: flex-start; gap: 10px; text-align: left; margin-bottom: 15px; font-size: 13px; color: #666; cursor: pointer;">
 						<input type="checkbox" id="contactAgreement" style="margin-top: 2px; width: auto; accent-color: var(--gold);">
