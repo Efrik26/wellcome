@@ -138,6 +138,12 @@ function submitBooking() {
         return;
     }
 
+    const agreement = document.getElementById('calcAgreement');
+    if (!agreement.checked) {
+    alert('Пожалуйста, подтвердите согласие на обработку персональных данных.');
+    return;
+    }
+
     const items = products.filter(p => (cart[p.id] || 0) > 0)
         .map(p => `${p.name} × ${cart[p.id]}`).join(', ');
     const final = document.getElementById('finalPrice').textContent;
@@ -186,6 +192,12 @@ function handleContactForm(e) {
     if (!name || !phone) {
         alert('Пожалуйста, заполните обязательные поля.');
         return;
+    }
+
+    const agreement = document.getElementById('contactAgreement');
+    if (!agreement.checked) {
+    alert('Пожалуйста, подтвердите согласие на обработку персональных данных.');
+    return;
     }
 
     const formData = new FormData();
