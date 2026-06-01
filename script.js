@@ -3,15 +3,15 @@ const products = [
     { id: 1, name: 'Коктейльный стол (110×80 см)', price: 600, image: 'images/cocktail-table.jpg' },
     { id: 2, name: 'Стрейч-чехол на кокт. стол (чёрный)', price: 500, image: 'images/stretch-cover-black.jpg' },
     { id: 3, name: 'Стрейч-чехол на кокт. стол (белый)', price: 500, image: 'images/stretch-cover-white.jpg' },
-    { id: 4, name: 'Скатерть на кокт. стол (белая)', price: 800, icon: '⬜' },
-    { id: 5, name: 'Скатерть на кокт. стол (чёрная)', price: 800, icon: '⬛' },
+    { id: 4, name: 'Скатерть на кокт. стол (белая)', price: 800, image: 'images/tablecloth-round-white.jpg' },
+    { id: 5, name: 'Скатерть на кокт. стол (чёрная)', price: 800, image: 'images/tablecloth-round-black.jpg' },
     { id: 6, name: 'Прямоугольный стол складной (180×75 см)', price: 1000, image: 'images/rectangular-table.jpg' },
     { id: 7, name: 'Стрейч-чехол на прям. стол (чёрный)', price: 800, image: 'images/stretch-rect-black.jpg' },
-    { id: 8, name: 'Стрейч-чехол на прям. стол (белый)', price: 800, icon: '🤍' },
-    { id: 9, name: 'Скатерть на прям. стол (белая)', price: 1000, icon: '⬜' },
-    { id: 10, name: 'Скатерть на прям. стол (чёрная)', price: 1000, icon: '⬛' },
+    { id: 8, name: 'Стрейч-чехол на прям. стол (белый)', price: 800, image: 'images/stretch-rect-white.jpg' },
+    { id: 9, name: 'Скатерть на прям. стол (белая)', price: 1000, image: 'images/tablecloth-rect-white.jpg' },
+    { id: 10, name: 'Скатерть на прям. стол (чёрная)', price: 1000, image: 'images/tablecloth-rect-black.jpg' },
     { id: 11, name: 'Стул прозрачный кьявари', price: 350, image: 'images/chiavari-chair.jpg' },
-    { id: 12, name: 'Стул деревянный складной', price: 250, icon: '🪑' },
+    { id: 12, name: 'Стул деревянный складной', price: 250, image: 'images/wooden-chair.jpg' },
 ];
 
 // Корзина: { id: quantity }
