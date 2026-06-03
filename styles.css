@@ -324,6 +324,14 @@ section {
     gap: 40px;
 }
 
+.advantage-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: var(--dark);
+}
+
 .advantage-card {
     text-align: center;
     padding: 60px 25px 35px;
